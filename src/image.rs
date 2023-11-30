@@ -51,6 +51,15 @@ impl<'a> Image {
         }
     }
 
+    pub fn create_from_raw(w: i32, h: i32, bytes: Vec<u8>) -> Image {
+
+        Image {
+            width: w,
+            height: h,
+            bytes: bytes,
+        }
+    }
+
     /// Check if there is a pixel at this location given by x and y.
     ///
     /// # Examples
