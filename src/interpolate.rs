@@ -111,7 +111,7 @@ fn bilinear_width(src: &mut Image, w2: i32) -> RasterResult<()> {
 
             dest.set_pixel(x + offset_x, y, &Color::rgba(red, green, blue, alpha))?;
         }
-    })
+    });
     src.width = dest.width;
     src.height = dest.height;
     src.bytes = dest.bytes;
@@ -168,7 +168,7 @@ fn bilinear_height(src: &mut Image, h2: i32) -> RasterResult<()> {
 
             dest.set_pixel(x, y + offset_y, &Color::rgba(red, green, blue, alpha))?;
         }
-    })
+    });
     src.width = dest.width;
     src.height = dest.height;
     src.bytes = dest.bytes;
