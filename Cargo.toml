@@ -17,6 +17,9 @@ documentation = "https://docs.rs/raster/"
 homepage = "https://github.com/kosinix/raster"
 repository = "https://github.com/kosinix/raster.git"
 
+[dependencies]
+rayon = "1.5.1"
+
 [dependencies.image]
 version = "0.19"
 default-features = false
