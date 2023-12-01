@@ -2,7 +2,7 @@
 
 // from rust
 use std::cmp;
-
+extern crate rayon;
 // from external crate
 
 // from local crate
