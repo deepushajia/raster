@@ -9,6 +9,7 @@ use std::cmp;
 use error::RasterResult;
 use Image;
 use Color;
+use rayon::prelude::*;
 
 /// An enum for the various modes that can be used for interpolation.
 #[derive(Debug)]
@@ -75,7 +76,7 @@ fn bilinear_width(src: &mut Image, w2: i32) -> RasterResult<()> {
     let x_start = 0 - offset_x;
     let x_end = w2 - offset_x;
 
-    for y in 0..h1 {
+    (0..h1).into_par_iter().for_each(|y| {
         for x in x_start..x_end {
             let src_x = {
                 let src_x = x as f64 * x_ratio;
@@ -132,7 +133,7 @@ fn bilinear_height(src: &mut Image, h2: i32) -> RasterResult<()> {
     let y_start = 0 - offset_y;
     let y_end = h2 - offset_y;
 
-    for x in 0..w1 {
+    (0..w1).into_par_iter().for_each(|x| {
         for y in y_start..y_end {
             let src_y = {
                 let src_y = y as f64 * y_ratio;
